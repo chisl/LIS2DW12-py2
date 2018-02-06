@@ -80,3 +80,351 @@ class LIS2DW12_Base:
 	# Mode selection (see Table 31)  
 	# Bits LP_MODE
 	# Low-power mode selection (see Table 32) 
+	# Register CTRL2
+	# 8.5
+	#       Control register 2 
+	
+	
+	def setCTRL2(self, val):
+		"""Set register CTRL2"""
+		self.write(REG.CTRL2, val, 8)
+	
+	def getCTRL2(self):
+		"""Get register CTRL2"""
+		return self.read(REG.CTRL2, 8)
+	
+	# Bits BOOT
+	# Boot enables retrieving the correct trimming parameters from nonvolatile memory
+	#           into registers where trimming parameters are stored.
+	#           Once the operation is over, this bit automatically returns to 0. 
+	
+	# Bits reserved_0
+	# This bit must be set to ‘0’ for the correct operation of the device. 
+	# Bits SOFT_RESET
+	# Soft reset acts as reset for all control registers, then goes to 0. 
+	# Bits CS_PU_DISC
+	# Disconnect CS pull-up. 
+	# Bits BDU
+	# Block data update. 
+	#           The BDU bit is used to inhibit the update of the output registers until both upper and lower
+	#           register parts are read. In default mode (BDU = ‘0’) the output register values are updated continuously. When the BDU is activated (BDU = ‘1’), the content of the output registers is not updated until both MSB and LSB are read which avoids reading values related to different sample times. 
+	
+	# Bits IF_ADD_INC
+	# Register address automatically incremented during multiple byte access with a serial interface (I2C or SPI). 
+	# Bits I2C_DISABLE
+	# Disable I2C communication protocol. 
+	# Bits SIM
+	# SPI serial interface mode selection. 
+	# Register CTRL3
+	# 8.6
+	#       COntrol register 3 
+	
+	
+	def setCTRL3(self, val):
+		"""Set register CTRL3"""
+		self.write(REG.CTRL3, val, 8)
+	
+	def getCTRL3(self):
+		"""Get register CTRL3"""
+		return self.read(REG.CTRL3, 8)
+	
+	# Bits ST
+	# Bits PP_OD
+	# Push-pull/open-drain selection on interrupt pad. 
+	# Bits LIR
+	# Latched Interrupt. Switches between latched ('1'-logic) and pulsed ('0'-logic) mode for function source
+	#           signals and interrupts routed to pins (wakeup, single/double-tap). 
+	
+	# Bits H_LACTIVE
+	# Interrupt active high, low. 
+	# Bits unused_0
+	# Bits SLP_MODE_SEL
+	# Single data conversion on demand mode selection 
+	# Bits SLP_MODE_1
+	# Single data conversion on demand mode enable. When SLP_MODE_SEL = '1' and this bit is set to '1' logic, 
+	#           single data conversion on demand mode starts. When XL data are available in the registers, this bit is set 
+	#           to '0' automatically and the device is ready for another triggered session. 
+	
+	# Register CTRL4_INT1_PAD_CTRL
+	# 8.7
+	#       Control register 4 
+	
+	
+	def setCTRL4_INT1_PAD_CTRL(self, val):
+		"""Set register CTRL4_INT1_PAD_CTRL"""
+		self.write(REG.CTRL4_INT1_PAD_CTRL, val, 8)
+	
+	def getCTRL4_INT1_PAD_CTRL(self):
+		"""Get register CTRL4_INT1_PAD_CTRL"""
+		return self.read(REG.CTRL4_INT1_PAD_CTRL, 8)
+	
+	# Bits INT1_6D
+	# 6D recognition is routed to INT1 pad. 
+	# Bits INT1_SINGLE_TAP
+	# Single-tap recognition is routed to INT1 pad. 
+	# Bits INT1_WU
+	# Wakeup recognition is routed to INT1 pad. 
+	# Bits INT1_FF
+	# Free-fall recognition is routed to INT1 pad. 
+	# Bits INT1_TAP
+	# Double-tap recognition is routed to INT1 pad. 
+	# Bits INT1_DIFF5
+	# FIFO full recognition is routed to INT1 pad. 
+	# Bits INT1_FTH
+	# FIFO threshold interrupt is routed to INT1 pad. 
+	# Bits INT1_DRDY
+	# Data-Ready is routed to INT1 pad. 
+	# Register CTRL5_INT2_PAD_CTRL
+	# 8.8
+	#       Control register 4 
+	
+	
+	def setCTRL5_INT2_PAD_CTRL(self, val):
+		"""Set register CTRL5_INT2_PAD_CTRL"""
+		self.write(REG.CTRL5_INT2_PAD_CTRL, val, 8)
+	
+	def getCTRL5_INT2_PAD_CTRL(self):
+		"""Get register CTRL5_INT2_PAD_CTRL"""
+		return self.read(REG.CTRL5_INT2_PAD_CTRL, 8)
+	
+	# Bits INT2_SLEEP_STATE
+	# Enable routing of SLEEP_STATE on INT2 pad.  
+	# Bits INT2_SLEEP_CHG
+	# Sleep change status routed to INT2 pad. 
+	# Bits INT2_BOOT
+	# Boot state routed to INT2 pad. 
+	# Bits INT2_DRDY_T
+	# Temperature data-ready is routed to INT2. 
+	# Bits INT2_OVR
+	# FIFO overrun interrupt is routed to INT2 pad. 
+	# Bits INT2_DIFF5
+	# FIFO full recognition is routed to INT2 pad. 
+	# Bits INT2_FTH
+	# FIFO threshold interrupt is routed to INT2 pad. 
+	# Bits INT2_DRDY
+	# Data-ready is routed to INT2 pad. 
+	# Register CTRL6
+	# 8.9
+	#       Control register 6. 
+	
+	
+	def setCTRL6(self, val):
+		"""Set register CTRL6"""
+		self.write(REG.CTRL6, val, 8)
+	
+	def getCTRL6(self):
+		"""Get register CTRL6"""
+		return self.read(REG.CTRL6, 8)
+	
+	# Bits BW_FILT
+	# Bandwidth selection 
+	# Bits FS
+	# Full-scale selection. 
+	# Bits FDS
+	# Filtered data type selection. 
+	# Bits LOW_NOISE
+	# Low-noise configuration. 
+	# Register OUT_T
+	# 8.10
+	#       Temperature output register in 8-bit resolution (r)
+	#       The value is expressed as two’s complement sign. Sensitivity = 1°C/LSB
+	#       0 LSB represents T=25 °C ambient. 
+	
+	
+	def setOUT_T(self, val):
+		"""Set register OUT_T"""
+		self.write(REG.OUT_T, val, 8)
+	
+	def getOUT_T(self):
+		"""Get register OUT_T"""
+		return self.read(REG.OUT_T, 8)
+	
+	# Bits OUT_T
+	# Register STATUS
+	# 8.11
+	#       Status register (r). 
+	
+	
+	def setSTATUS(self, val):
+		"""Set register STATUS"""
+		self.write(REG.STATUS, val, 8)
+	
+	def getSTATUS(self):
+		"""Get register STATUS"""
+		return self.read(REG.STATUS, 8)
+	
+	# Bits FIFO_THS
+	# FIFO threshold status flag. 
+	# Bits WU_IA
+	# Wakeup event detection status. 
+	# Bits SLLEP_STATE
+	# Sleep event status. 
+	# Bits DOUBLE_TAP
+	# Double-tap event status 
+	# Bits SINGLE_TAP
+	# Single-tap event status 
+	# Bits D6_IA
+	# Source of change in position portrait/landscape/face-up/face-down. 
+	# Bits FF_IA
+	# Free-fall event detection status. 
+	# Bits DRDY
+	# Data-ready status. 
+	# Register OUT_X
+	# X-axis output register (r). 
+	#       It forms the output value expressed as a 16-bit word in 2's complement. 
+	
+	
+	def setOUT_X(self, val):
+		"""Set register OUT_X"""
+		self.write(REG.OUT_X, val, 16)
+	
+	def getOUT_X(self):
+		"""Get register OUT_X"""
+		return self.read(REG.OUT_X, 16)
+	
+	# Bits reserved_0
+	# Bits OUT_X
+	# NOTE: If Low-Power Mode 1 is enabled, this bit2 15..14 are set to 0. 
+	# Register OUT_Y
+	# Y-axis output register (r). 
+	#       It forms the output value expressed as a 16-bit word in 2's complement. 
+	
+	
+	def setOUT_Y(self, val):
+		"""Set register OUT_Y"""
+		self.write(REG.OUT_Y, val, 16)
+	
+	def getOUT_Y(self):
+		"""Get register OUT_Y"""
+		return self.read(REG.OUT_Y, 16)
+	
+	# Bits reserved_0
+	# Bits OUT_Y
+	# NOTE: If Low-Power Mode 1 is enabled, this bit2 15..14 are set to 0. 
+	# Register OUT_Z
+	# Z-axis output register (r). 
+	#       It forms the output value expressed as a 16-bit word in 2's complement. 
+	
+	
+	def setOUT_Z(self, val):
+		"""Set register OUT_Z"""
+		self.write(REG.OUT_Z, val, 16)
+	
+	def getOUT_Z(self):
+		"""Get register OUT_Z"""
+		return self.read(REG.OUT_Z, 16)
+	
+	# Bits reserved_0
+	# Bits OUT_Z
+	# NOTE: If Low-Power Mode 1 is enabled, this bit2 15..14 are set to 0. 
+	# Register OUT_X_L
+	# 8.12
+	#       X-axis LSB output register (r).
+	#       1.   If Low-Power Mode 1 is enabled, this bit is set to 0.
+	#       The 8 least significant bits of linear acceleration sensor X-axis output. Together with the
+	#       OUT_X_H (29h) register, it forms the output value expressed as a 16-bit word in 2's complement.
+	#       X_H7	X_H6	X_H5	X_H4	X_H3	X_H2	X_H1	X_H0
+	#       The 8 most significant bits of linear acceleration sensor X-axis output. Together with the
+	#       OUT_X_L (28h) register, it forms the output value expressed as a 16-bit word in 2's complement. 
+	
+	
+	def setOUT_X_L(self, val):
+		"""Set register OUT_X_L"""
+		self.write(REG.OUT_X_L, val, 8)
+	
+	def getOUT_X_L(self):
+		"""Get register OUT_X_L"""
+		return self.read(REG.OUT_X_L, 8)
+	
+	# Bits OUT_X_L
+	# Register OUT_Y_L
+	# 8.14
+	#       Y-axis LSB output register (r).
+	#       1.   If Low-Power Mode 1 is enabled, this bit is set to 0.
+	#       The 8 least significant bits of linear acceleration sensor Y-axis output. Together with the
+	#       OUT_Y_H (2Bh) register, it forms the output value expressed as a 16-bit word in 2's complement. 
+	
+	
+	def setOUT_Y_L(self, val):
+		"""Set register OUT_Y_L"""
+		self.write(REG.OUT_Y_L, val, 8)
+	
+	def getOUT_Y_L(self):
+		"""Get register OUT_Y_L"""
+		return self.read(REG.OUT_Y_L, 8)
+	
+	# Bits OUT_Y_L
+	# Register OUT_Y_H
+	# 8.15
+	#       Y-axis MSB output register (r).
+	#       OUT_Y_L (2Ah) register, it forms the output value expressed as a 16-bit word in 2's complement. 
+	
+	
+	def setOUT_Y_H(self, val):
+		"""Set register OUT_Y_H"""
+		self.write(REG.OUT_Y_H, val, 8)
+	
+	def getOUT_Y_H(self):
+		"""Get register OUT_Y_H"""
+		return self.read(REG.OUT_Y_H, 8)
+	
+	# Bits OUT_Y_H
+	# Register OUT_Z_L
+	# 8.16
+	#       Z-axis LSB output register (r).
+	#       Z_L7	Z_L6	Z_L5	Z_L4	Z_L3(1)	Z_L2(1)	0	0
+	#       1.   If Low-power Mode 1 is enabled, this bit is set to 0.
+	#       The 8 least significant bits of linear acceleration sensor Z-axis output. Together with the
+	#       OUT_Z_H (2Dh) register, it forms the output value expressed as a 16-bit word in 2's complement.
+	#       Z_H7	Z_H6	Z_H5	Z_H4	Z_H3	Z_H2	Z_H1	Z_H0
+	#       The 8 most significant bits of linear acceleration sensor Z-axis output. Together with the
+	#       OUT_Z_L (2Ch) register, it forms the output value expressed as a 16-bit word in 2's complement. 
+	
+	
+	def setOUT_Z_L(self, val):
+		"""Set register OUT_Z_L"""
+		self.write(REG.OUT_Z_L, val, 8)
+	
+	def getOUT_Z_L(self):
+		"""Get register OUT_Z_L"""
+		return self.read(REG.OUT_Z_L, 8)
+	
+	# Bits OUT_Z_L
+	# Register FIFO_CTRL
+	# 8.18
+	#       FIFO control register 
+	
+	
+	def setFIFO_CTRL(self, val):
+		"""Set register FIFO_CTRL"""
+		self.write(REG.FIFO_CTRL, val, 8)
+	
+	def getFIFO_CTRL(self):
+		"""Get register FIFO_CTRL"""
+		return self.read(REG.FIFO_CTRL, 8)
+	
+	# Bits FMODE
+	# FIFO mode selection bits. 
+	# Bits FTH
+	# FIFO threshold level setting. 
+	# Register FIFO_SAMPLES
+	# 8.19
+	#       FIFO_SAMPLES control register. 
+	
+	
+	def setFIFO_SAMPLES(self, val):
+		"""Set register FIFO_SAMPLES"""
+		self.write(REG.FIFO_SAMPLES, val, 8)
+	
+	def getFIFO_SAMPLES(self):
+		"""Get register FIFO_SAMPLES"""
+		return self.read(REG.FIFO_SAMPLES, 8)
+	
+	# Bits FIFO_FTH
+	# FIFO threshold status flag. 
+	# Bits FIFO_OVR
+	# FIFO overrun status. 
+	# Bits DIFF
+	# Represents the number of unread samples stored in FIFO. 
+	#           (000000 = FIFO empty; 100000 = FIFO full, 32 unread samples. 
+	
