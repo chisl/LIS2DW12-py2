@@ -224,22 +224,22 @@ class LIS2DW12_Base:
 	# Filtered data type selection. 
 	# Bits LOW_NOISE
 	# Low-noise configuration. 
-	# Register OUT_T
+	# Register OUT_T2
 	# 8.10
 	#       Temperature output register in 8-bit resolution (r)
 	#       The value is expressed as two’s complement sign. Sensitivity = 1°C/LSB
 	#       0 LSB represents T=25 °C ambient. 
 	
 	
-	def setOUT_T(self, val):
-		"""Set register OUT_T"""
-		self.write(REG.OUT_T, val, 8)
+	def setOUT_T2(self, val):
+		"""Set register OUT_T2"""
+		self.write(REG.OUT_T2, val, 8)
 	
-	def getOUT_T(self):
-		"""Get register OUT_T"""
-		return self.read(REG.OUT_T, 8)
+	def getOUT_T2(self):
+		"""Get register OUT_T2"""
+		return self.read(REG.OUT_T2, 8)
 	
-	# Bits OUT_T
+	# Bits OUT_T2
 	# Register STATUS
 	# 8.11
 	#       Status register (r). 
@@ -428,3 +428,106 @@ class LIS2DW12_Base:
 	# Represents the number of unread samples stored in FIFO. 
 	#           (000000 = FIFO empty; 100000 = FIFO full, 32 unread samples. 
 	
+	# Register TAP_THS_X
+	# 8.20
+	#       4D configuration enable and TAP threshold configuration. 
+	
+	
+	def setTAP_THS_X(self, val):
+		"""Set register TAP_THS_X"""
+		self.write(REG.TAP_THS_X, val, 8)
+	
+	def getTAP_THS_X(self):
+		"""Get register TAP_THS_X"""
+		return self.read(REG.TAP_THS_X, 8)
+	
+	# Bits D4_EN
+	# 4D detection portrait/landscape position enable. 
+	# Bits D6_THS
+	# Thresholds for 4D/6D function @ FS = ±2 g 
+	# Bits TAP_THSX
+	# Threshold for TAP recognition @ FS = ±2 g on X direction 
+	# Register TAP_THS_Y
+	# 8.21 
+	
+	def setTAP_THS_Y(self, val):
+		"""Set register TAP_THS_Y"""
+		self.write(REG.TAP_THS_Y, val, 8)
+	
+	def getTAP_THS_Y(self):
+		"""Get register TAP_THS_Y"""
+		return self.read(REG.TAP_THS_Y, 8)
+	
+	# Bits TAP_PRIOR
+	# Selection  of axis priority for tap detection. 
+	#           Max priority / Mid priority / Min priority 
+	
+	# Bits TAP_THSY
+	# Threshold for tap recognition @ FS = ±2 g on Y direction. 
+	# Register TAP_THS_Z
+	# 8.22 
+	
+	def setTAP_THS_Z(self, val):
+		"""Set register TAP_THS_Z"""
+		self.write(REG.TAP_THS_Z, val, 8)
+	
+	def getTAP_THS_Z(self):
+		"""Get register TAP_THS_Z"""
+		return self.read(REG.TAP_THS_Z, 8)
+	
+	# Bits TAP_X_EN
+	# Enables X direction in tap recognition. 
+	# Bits TAP_Y_EN
+	# Enables Y direction in tap recognition. 
+	# Bits TAP_Z_EN
+	# Enables Z direction in tap recognition. 
+	# Bits TAP_THSZ
+	# Threshold for tap recognition @ FS = ±2 g on Z direction. 
+	# Register INT_DUR
+	# Interrupt duration register 
+	
+	def setINT_DUR(self, val):
+		"""Set register INT_DUR"""
+		self.write(REG.INT_DUR, val, 8)
+	
+	def getINT_DUR(self):
+		"""Get register INT_DUR"""
+		return self.read(REG.INT_DUR, 8)
+	
+	# Bits LATENCY
+	# Duration of maximum time gap for double-tap recognition. When double-tap recognition is enabled, this 
+	#           register expresses the maximum time between two successive detected taps to determine a double-tap event.
+	#           Default value is LATENCY = 0000 (which is 16 * 1/ODR)
+	#           1 LSB = 32 * 1/ODR. 
+	
+	# Bits QUIET
+	# Expected quiet time after a tap detection: this register represents the time after the first detected 
+	#           tap in which there must not be any overthreshold event.
+	#           Default value is QUIET[1:0] = 00 (which is 2 * 1/ODR)
+	#           1 LSB = 4 * 1/ODR 
+	
+	# Bits SHOCK
+	# Maximum duration of over-threshold event: this register represents the maximum time of an 
+	#           over-threshold signal detection to be recognized as a tap event. 
+	#           Default value is SHOCK[1:0] = 00 (which is 4 * 1/ODR) 
+	#           1 LSB = 8 *1/ODR 
+	
+	# Register WAKE_UP_THS
+	# 8.24
+	#       Wakeup threshold register. 
+	
+	
+	def setWAKE_UP_THS(self, val):
+		"""Set register WAKE_UP_THS"""
+		self.write(REG.WAKE_UP_THS, val, 8)
+	
+	def getWAKE_UP_THS(self):
+		"""Get register WAKE_UP_THS"""
+		return self.read(REG.WAKE_UP_THS, 8)
+	
+	# Bits SINGLE_DOUBLE_TAP
+	# Enable single/double-tap event. 
+	# Bits SLEEP_ON
+	# Sleep (inactivity) enable. 
+	# Bits WK_THS
+	# Wakeup threshold, 6-bit unsigned 1 LSB = 1/64 of FS. 
