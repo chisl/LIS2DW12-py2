@@ -531,3 +531,229 @@ class LIS2DW12_Base:
 	# Sleep (inactivity) enable. 
 	# Bits WK_THS
 	# Wakeup threshold, 6-bit unsigned 1 LSB = 1/64 of FS. 
+	# Register WAKE_UP_DUR
+	# 8.25
+	#       Wakeup and sleep duration configuration register 
+	
+	
+	def setWAKE_UP_DUR(self, val):
+		"""Set register WAKE_UP_DUR"""
+		self.write(REG.WAKE_UP_DUR, val, 8)
+	
+	def getWAKE_UP_DUR(self):
+		"""Get register WAKE_UP_DUR"""
+		return self.read(REG.WAKE_UP_DUR, 8)
+	
+	# Bits FF_DUR5
+	# Free-fall duration. In conjunction with FF_DUR [4:0] bit in FREE_FALL (36h) register.
+	#         1 LSB = 1 * 1/ODR 
+	
+	# Bits WAKE_DUR
+	# Wakeup duration. 1 LSB = 1 *1/ODR 
+	# Bits STATIONARY
+	# Enable stationary detection / motion detection with no automatic ODR change 
+	#           when detecting stationary state. 
+	
+	# Bits SLEEP_DUR
+	# Duration to go in sleep mode. 
+	#           Default value is SLEEP_ DUR[3:0] = 0000 (which is 16 * 1/ODR) 
+	#           1 LSB = 512 * 1/ODR 
+	
+	# Register FREE_FALL
+	# 8.26
+	#       Free-fall duration and threshold configuration register 
+	
+	
+	def setFREE_FALL(self, val):
+		"""Set register FREE_FALL"""
+		self.write(REG.FREE_FALL, val, 8)
+	
+	def getFREE_FALL(self):
+		"""Get register FREE_FALL"""
+		return self.read(REG.FREE_FALL, 8)
+	
+	# Bits FF_DUR
+	# Free-fall duration. In conjunction with FF_DUR5 bit in WAKE_UP_DUR (35h) 
+	#       register. 1 LSB = 1 * 1/ODR 
+	
+	# Bits FF_THS
+	# Free-fall threshold @ FS = ±2 g (refer to Table 77) 
+	# Register STATUS_DUP
+	# 8.27 
+	#       Event detection status register 
+	
+	
+	def setSTATUS_DUP(self, val):
+		"""Set register STATUS_DUP"""
+		self.write(REG.STATUS_DUP, val, 8)
+	
+	def getSTATUS_DUP(self):
+		"""Get register STATUS_DUP"""
+		return self.read(REG.STATUS_DUP, 8)
+	
+	# Bits OVR
+	# FIFO overrun status flag. 
+	# Bits DRDY_T
+	# Temperature status. 
+	# Bits SLEEP_STATE_IA
+	# Sleep event status. 
+	# Bits DOUBLE_TAP
+	# Double-tap event status: 
+	# Bits SINGLE_TAP
+	# Single-tap event status: 
+	# Bits D6_IA
+	# Source of change in position portrait/landscape/face-up/face-down. 
+	# Bits FF_IA
+	# Free-fall event detection status. 
+	# Bits DRDY
+	# Data-ready status. 
+	# Register WAKE_UP_SRC
+	# 8.28
+	#       Wakeup source register (r). 
+	
+	
+	def setWAKE_UP_SRC(self, val):
+		"""Set register WAKE_UP_SRC"""
+		self.write(REG.WAKE_UP_SRC, val, 8)
+	
+	def getWAKE_UP_SRC(self):
+		"""Get register WAKE_UP_SRC"""
+		return self.read(REG.WAKE_UP_SRC, 8)
+	
+	# Bits reserved_0
+	# Bits FF_IA
+	# Free-fall event detection status. 
+	# Bits SLEEP_STATE_IA
+	# Sleep event status. 
+	# Bits WU_IA
+	# Wakeup event detection status. 
+	# Bits X_WU
+	# Wakeup event detection status on X-axis. 
+	# Bits Y_WU
+	# Wakeup event detection status on Y-axis. 
+	# Bits Z_WU
+	# Wakeup event detection status on Z-axis. 
+	# Register TAP_SRC
+	# 8.29
+	#       Tap source register 
+	
+	
+	def setTAP_SRC(self, val):
+		"""Set register TAP_SRC"""
+		self.write(REG.TAP_SRC, val, 8)
+	
+	def getTAP_SRC(self):
+		"""Get register TAP_SRC"""
+		return self.read(REG.TAP_SRC, 8)
+	
+	# Bits reserved_0
+	# Bits TAP_IA
+	# Tap event status. 
+	# Bits SINGLE_TAP
+	# Single-tap event status. 
+	# Bits DOUBLE_TAP
+	# Double-tap event status. 
+	# Bits TAP_SIGN
+	# Sign of acceleration detected by tap event. 
+	# Bits X_TAP
+	# Tap event detection status on X-axis. 
+	# Bits Y_TAP
+	# Tap event detection status on Y-axis. 
+	# Bits Z_TAP
+	# Tap event detection status on Z-axis. 
+	# Register SIXD_SRC
+	# 8.30 
+	#       6D source register 
+	
+	
+	def setSIXD_SRC(self, val):
+		"""Set register SIXD_SRC"""
+		self.write(REG.SIXD_SRC, val, 8)
+	
+	def getSIXD_SRC(self):
+		"""Get register SIXD_SRC"""
+		return self.read(REG.SIXD_SRC, 8)
+	
+	# Bits reserved_0
+	# Bits D6_IA
+	# Source of change in position portrait/landscape/face-up/face-down. 
+	# Bits ZH
+	# ZH over threshold. 
+	# Bits ZL
+	# ZL over threshold. 
+	# Bits YH
+	# YH over threshold. 
+	# Bits YL
+	# YL over threshold. 
+	# Bits XH
+	# XH over threshold. 
+	# Bits XL
+	# XL over threshold. 
+	# Register ALL_INT_SRC
+	# 8.31
+	#       Reading this register, all related interrupt function flags routed to the INT pads are reset simultaneously. 
+	
+	
+	def setALL_INT_SRC(self, val):
+		"""Set register ALL_INT_SRC"""
+		self.write(REG.ALL_INT_SRC, val, 8)
+	
+	def getALL_INT_SRC(self):
+		"""Get register ALL_INT_SRC"""
+		return self.read(REG.ALL_INT_SRC, 8)
+	
+	# Bits reserved_0
+	# Bits SLEEP_CHANGE_IA
+	# Sleep change status. 
+	# Bits D6_IA
+	# Source of change in position portrait/landscape/face-up/face-down. 
+	# Bits DOUBLE_TAP
+	# Double-tap event status. 
+	# Bits SINGLE_TAP
+	# Single-tap event status. 
+	# Bits WU_IA
+	# Wakeup event detection status. 
+	# Bits FF_IA
+	# Free-fall event detection status. 
+	# Register X_OFS_USR
+	# 8.32
+	#       Two's complement user offset value on X-axis data, used for wakeup function. 
+	
+	
+	def setX_OFS_USR(self, val):
+		"""Set register X_OFS_USR"""
+		self.write(REG.X_OFS_USR, val, 8)
+	
+	def getX_OFS_USR(self):
+		"""Get register X_OFS_USR"""
+		return self.read(REG.X_OFS_USR, 8)
+	
+	# Bits X_OFS_USR
+	# Register Y_OFS_USR
+	# 8.33
+	#       Two's complement user offset value on Y-axis data, used for wakeup function. 
+	
+	
+	def setY_OFS_USR(self, val):
+		"""Set register Y_OFS_USR"""
+		self.write(REG.Y_OFS_USR, val, 8)
+	
+	def getY_OFS_USR(self):
+		"""Get register Y_OFS_USR"""
+		return self.read(REG.Y_OFS_USR, 8)
+	
+	# Bits Y_OFS_USR
+	# Register Z_OFS_USR
+	# 8.34
+	#       Two's complement user offset value on Z-axis data, used for wakeup function. 
+	
+	
+	def setZ_OFS_USR(self, val):
+		"""Set register Z_OFS_USR"""
+		self.write(REG.Z_OFS_USR, val, 8)
+	
+	def getZ_OFS_USR(self):
+		"""Get register Z_OFS_USR"""
+		return self.read(REG.Z_OFS_USR, 8)
+	
+	# Bits Z_OFS_USR
